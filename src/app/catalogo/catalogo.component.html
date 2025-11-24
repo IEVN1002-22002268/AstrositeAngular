@@ -9,7 +9,8 @@
         </div>
         <div class="col-12 col-md-5 mt-3 mt-md-0">
             <div class="cont-search">
-                <input class="form-control buscador-catalogo" type="search" placeholder="¿Qué estás buscando?">
+                <input class="form-control buscador-catalogo" type="search" placeholder="¿Qué estás buscando?" 
+                [(ngModel)]="terminoBusqueda" (input)="filtrarJuegos()">
             </div>
         </div>
     </div>

@@ -1,0 +1,38 @@
+.btn-add{
+    background-color: #4BD3A2;
+    color: white;
+    border-radius: 10px;
+    width: 5vh;
+    height: 5vh;
+    font-weight: bold;
+    /* font-size: 14px; */
+}
+
+.btn-subs{
+    background-color: #F3BB52;
+    color: white;
+    border-radius: 10px;
+    width: 5vh;
+    height: 5vh;
+    font-weight: bold;
+    /* font-size: 14px; */
+}
+
+.cantidad{
+  font-size: 3vh;
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+  justify-content: center; /* Opcional: alinea horizontalmente */
+  width: 7vh;
+  font-weight: bold;
+}
+
+.btn-del{
+    width: 5vh;
+    height: 5vh;
+    /* font-size: 14px; */
+}
+
+.game-card{
+  width: 60%;
+}

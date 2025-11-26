@@ -1,0 +1,60 @@
+<div class="container mb-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-7 mt-5 row">
+            <div class="col-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+              </svg>
+            </div>
+            <div class="col-7">
+              <h1 class="">Mi Carrito</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card pe-1 ps-1 mb-3 game-card col-6" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of listaCarrito">
+                <div class="card-body d-flex align-items-center p-3">
+                    <img src="/wall-nat.jpg" alt="game_image" class="img-fluid"
+                                style="border-radius: 1rem; height: 15vh;">
+                    <div class="flex-grow-1 ms-5">
+                        <div class="d-flex align-items-center flex-wrap row mb-3">
+                            <h4 class="card-title mb-0 p-0">Nombre juego</h4>
+                        </div>
+                        <div class="row align-content-center">
+                          <button type="button" class="btn btn-add col-1">+</button>
+                          <p class="col-1 mb-0 cantidad p-0"> 1 </p>
+                          <button type="button" class="btn btn-subs col-1">-</button>
+                          <button type="button" class="col-1 p-0 ms-5 btn btn-del">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="5vh" viewBox="0 -960 960 960" width="5vh" fill="#FF4A7D">
+                              <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                            </svg>
+                          </button>
+                        </div>
+
+                    </div>
+                    <div class="d-flex gap-2 ms-3">
+                        <div class="container me-4">
+                          <div class="row justify-content-center">Precio</div>
+                          <div class="row fw-bold"> $10.00 USD </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card pe-1 ps-1 ms-5 mb-3 col-4" style="background-color: #fcfcff; border-color: #efedf4; ">
+                <div class="card-body d-flex align-items-center p-3">
+                  <div class="flex-grow-1 ms-5">
+                        <div class="d-flex align-items-center flex-wrap row mb-3">
+                            <h5 class="card-title mb-0 p-0">Resumen compra</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

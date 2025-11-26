@@ -7,10 +7,11 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import { BusquedaAmigosComponent } from './busqueda-amigos/busqueda-amigos.component';
 import { CambiarContrasennaComponent } from "./cambiar-contrasenna/cambiar-contrasenna.component";
 import { ReporteSoporteTecComponent } from './reporte-soporte-tec/reporte-soporte-tec.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, CambiarContrasennaComponent, ReporteSoporteTecComponent],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

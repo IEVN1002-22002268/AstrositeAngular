@@ -5,10 +5,12 @@ import { SignInComponent } from './auth/features/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/features/sign-up/sign-up.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { BusquedaAmigosComponent } from './busqueda-amigos/busqueda-amigos.component';
+import { CambiarContrasennaComponent } from "./cambiar-contrasenna/cambiar-contrasenna.component";
+import { ReporteSoporteTecComponent } from './reporte-soporte-tec/reporte-soporte-tec.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, SignInComponent, SignUpComponent, CatalogoComponent, BusquedaAmigosComponent],
+  imports: [RouterOutlet, NavbarComponent, CambiarContrasennaComponent, ReporteSoporteTecComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

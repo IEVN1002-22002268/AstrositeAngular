@@ -4,10 +4,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './auth/features/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/features/sign-up/sign-up.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
+import { BusquedaAmigosComponent } from './busqueda-amigos/busqueda-amigos.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, SignInComponent, SignUpComponent, CatalogoComponent],
+  imports: [RouterOutlet, NavbarComponent, SignInComponent, SignUpComponent, CatalogoComponent, BusquedaAmigosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

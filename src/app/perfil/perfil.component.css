@@ -2,7 +2,7 @@
     color: #891cff;
 }
 .fondo-portada {
-    background-color: var(--light-purple);
+    background-color: #c996fc;
     background: linear-gradient(90deg, #d8b4fe 0%, #c084fc 100%); /* Un gradiente sutil se ve más pro */
     height: 260px;
     width: 100%;
@@ -50,10 +50,33 @@
     padding-bottom: 1rem;
     border-bottom: 3px solid transparent;
 }
-
+.btn-solicitudes{
+    border-color: #823fff;
+    border-width: 2px;
+    color: #823fff;
+    border-radius: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.btn-solicitudes:hover{
+    background-color: #823fff;
+    color: white;
+}
+.btn-eliminar{
+    border-color: #ff4a7d;
+    border-width: 2px;
+    color: #ff4a7d;
+    border-radius: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.btn-eliminar:hover{
+    background-color: #ff4a7d;
+    color: white;
+}
 .nav-underline .nav-link.active {
-    color: var(--primary-purple);
-    border-bottom-color: var(--primary-purple);
+    color: #823fff;
+    border-bottom-color: #823fff;
     font-weight: 700;
 }
 .letra-verde{
@@ -61,6 +84,31 @@
 }
 .letra-amarrilla{
     color: #f3bb52;
+}
+.letra-gris{
+    color: #595c5f;
+}
+.btn-verde-azul{
+    background-color: #12e0d5;
+    color: white;
+    border-radius: 20px;
+    /* font-size: 14px; */
+}
+.btn-ver-perfil{
+    background: linear-gradient(90deg, #A756FF 0%, #FF40EF 100%);
+    border: none;
+    border-radius: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-ver-perfil:hover {
+  transform: scale(1.02);
+  color: white;
+}
+.conectado{
+    color: #09cd87;
+}
+.desconectado{
+    color: #09cd87;
 }
 @media (max-width: 767.98px) {
     .cont-info-user {

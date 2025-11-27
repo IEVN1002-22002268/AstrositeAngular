@@ -9,4 +9,8 @@ import { CommonModule } from '@angular/common';
 })
 export class PerfilComponent {
   juegosDelUsuario = [1, 2];
+  amigosDelUsuario = [1, 2, 3];
+  solicitudesDelUsuario = [1, 2, 3];
+
+  mostrarSolicitudes: boolean = false;
 }

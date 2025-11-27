@@ -10,7 +10,7 @@ import { ReporteSoporteTecComponent } from './reporte-soporte-tec/reporte-soport
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, CambiarContrasennaComponent, ReporteSoporteTecComponent],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

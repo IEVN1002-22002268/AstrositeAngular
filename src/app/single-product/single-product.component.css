@@ -1,0 +1,17 @@
+.letra-gris{
+    color: #595c5f;
+}
+.letra-morada{
+    color: #891cff;
+}
+.btn-add-carrito{
+    background: linear-gradient(90deg, #5157FF 0%, #66EBFF  100%);
+    border: none;
+    border-radius: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 10px 20px;
+}
+.btn-add-carrito:hover {
+  transform: scale(1.02);
+  color: white;
+}

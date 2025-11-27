@@ -6,6 +6,7 @@ import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contr
 import { ReporteSoporteTecComponent } from './reporte-soporte-tec/reporte-soporte-tec.component';
 import { UsuariosBloqueadosComponent } from './usuarios-bloqueados/usuarios-bloqueados.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { HistorialComprasComponent } from './historial-compras/historial-compras.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,10 @@ export const routes: Routes = [
   {
     path: 'carrito',
     component: CarritoComponent
+  },
+  {
+    path: 'historial',
+    component: HistorialComprasComponent
   },
   // (Opcional) Si entran a la raíz, redirigir al catálogo o a donde quieras
   { path: '', redirectTo: 'catalogo', pathMatch: 'full' }

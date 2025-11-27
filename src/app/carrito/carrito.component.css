@@ -36,3 +36,10 @@
 .game-card{
   width: 60%;
 }
+
+.btn-pagar{
+    background-color: #12E0D5;
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 5px 30px;
+}

@@ -1,0 +1,52 @@
+<div class="container mb-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-7 mt-5 mb-3 row">
+            <div class="col-1">
+              <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#212529">
+                <path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/>
+              </svg>
+            </div>
+            <div class="col">
+              <h1 class="">Historial de compras</h1>
+            </div>
+        </div>
+
+        <div class="" >
+            <div class="card pe-1 ps-1 mb-3 game-card col-6" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of listaHistorial">
+                <div class="card-body d-flex align-items-center p-3">
+                    <img src="/wall-nat.jpg" alt="game_image" class="img-fluid"
+                                style="border-radius: 1rem; height: 15vh;">
+                    <div class="flex-grow-1 ms-5">
+                        <div class="d-flex align-items-center flex-wrap row mb-3">
+                            <h4 class="card-title mb-0 mt-2 p-0">Nombre juego</h4>
+                            <p class="mt-2 text-verde">Compra finalizada</p>
+                        </div>
+
+
+                    </div>
+                    <div class="d-flex gap-2">
+                        <div class="container me-6">
+                          <div class="row justify-content-center">Precio</div>
+                          <div class="row fw-bold"> $10.00 USD </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <div class="container me-4">
+                          <button type="button" class="btn btn-borrar">Borrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex">
+              <button type="button" class="btn btn-volver mx-auto">Volver al carrito</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+

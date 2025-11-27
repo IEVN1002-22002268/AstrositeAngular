@@ -1,0 +1,41 @@
+section{
+    background-color: #212126;
+}
+.color-card {
+    background-color: #fcfcff;
+}
+a{
+    color: #891cff;
+    text-decoration: none;
+}
+label{
+    color: #322d3a;
+}
+#txt-signup{
+    font-size: 15px;
+    color: #322d3a;
+}
+
+.btn-cancelar {
+    background-color: #f2f2f7;
+    color: #3a3a3a;
+    border-radius: 20px;
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-cancelar:hover {
+    background-color: #e6e6ee;
+}
+.btn-principal{
+  background: linear-gradient(90deg, #5170FF 0%, #FF66C4 100%);
+  border: none;
+  border-radius: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-principal:hover {
+  box-shadow: 0 0px 15px #ddcbff;
+  transform: scale(1.02);
+  color: white;
+}
+

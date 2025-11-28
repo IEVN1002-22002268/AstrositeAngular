@@ -1,0 +1,38 @@
+.btn-seleccionado{
+    background-color: #eaddff;
+    color: #4f378b;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.btn-no-seleccionado{
+    border-color: #cac4d0;
+    border-width: 1.4px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+.buscador-catalogo{
+    border-radius: 20px;
+    /* font-size: 14px; */
+    /* padding-top: 10px; */
+}
+/* .buscador-catalogo::placeholder{
+    font-size: 14px;
+} */
+.cont-search{
+    margin-top: 80px;
+}
+.descuento-producto{
+    color: #891cff;
+    text-decoration: none;
+}
+.btn-morado{
+    background-color: #823fff;
+    color: white;
+    /* border-radius: 20px; */
+    /* font-size: 14px; */
+}
+
+
+
+

@@ -1,0 +1,135 @@
+<div class="fondo-portada"></div>
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="img-perfil-cont">
+                <img src="logoastroimg.png" alt="Avatar" class="img-perfil">
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 cont-info-user">
+                <div class="mb-3 mb-md-0">
+                    <h2 class="fw-semibold mb-2">Usuario Ejemplo</h2>
+                    <p class="text-muted mb-0">Descripción del perfil, intereses, profesión, etc.</p>
+                </div>
+                <div class="d-flex flex-column flex-md-row align-items-center gap-3">
+                    <span style="color: #891cff">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                        </svg> 10 amigos
+                    </span>
+                    
+                    <div class="d-flex gap-2 acciones-usuario">
+                        <button class="btn btn-morado">Agregar 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                            </svg>
+                        </button>
+                        <button class="btn btn-seleccionado px-3">...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-underline" id="myTab" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" id="jugados-tab" data-bs-toggle="tab" data-bs-target="#jugados-pane" type="button" role="tab" aria-selected="true">Más jugados</button>
+        </li>
+        <!-- <li class="nav-item">
+            <button class="nav-link" id="estadisticas-tab" data-bs-toggle="tab" data-bs-target="#estadisticas-pane" type="button" role="tab" aria-selected="false">Estadísticas</button>
+        </li> -->
+        <li class="nav-item">
+            <button class="nav-link" id="amigos-tab" data-bs-toggle="tab" data-bs-target="#amigos-pane" type="button" role="tab" aria-selected="false">Amigos</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="jugados-pane" role="tabpanel" tabindex="0">
+            <div class="row g-4"> 
+                <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juegoUser of juegosDelUsuario">
+                    <div class="card h-100" style="border-style: none; cursor: pointer;">
+                        <img src="td-wall.jpg" class="card-img-top" alt="Project Sunnight">
+                        
+                        <div class="mt-3">
+                            <h5 class="card-title">Project Sunnight</h5>
+                            <p class="card-text mb-2" style="color: #595c5f;">Horror survival zombies sandbox</p>
+                            <span class="letra-verde">Horas jugadas: 40hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="tab-pane fade" id="estadisticas-pane" role="tabpanel" tabindex="0">
+            <p>Esta es la sección de contenido en estadísticas.</p>
+        </div> -->
+
+        <div class="tab-pane fade" id="amigos-pane" role="tabpanel" tabindex="0">
+            <div class="row align-items-center">
+                <h6 class="col-lg-2 fw-semibold text-end">
+                    Buscar amigos:
+                </h6>
+                <div class="col-lg-7">
+                    <div class="cont-search">
+                        <input class="form-control buscador-catalogo" type="search" placeholder="¿Qué estás buscando?">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="d-flex gap-2 ms-3">
+                        <a href="javascript:void(0)" class="btn btn-solicitudes px-3" (click)="mostrarSolicitudes=!mostrarSolicitudes">
+                            {{mostrarSolicitudes ? 'Ver Usuarios':'Ver Solicitudes'}}</a>
+                    </div>
+                </div>
+            </div>
+            <div id="visibilidad-usuarios" *ngIf="!mostrarSolicitudes">
+                <div class="mt-4">
+                    <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of amigosDelUsuario">
+                        <div class="card-body d-flex align-items-center p-3">
+                            <div class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px; background-color: #e2d5fa;"></div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center flex-wrap">
+                                    <h6 class="card-title mb-0 me-2" style="font-size: 16px;">Usuario Ejemplo</h6>
+                                        <span class="conectado small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                <circle cx="8" cy="8" r="8"/>
+                                            </svg> Conectado
+                                        </span>
+                                </div>
+                                <p class="card-text letra-gris mb-0 text-truncate mt-2" style="max-width: 450px; font-size: 14px;">
+                                    Descripción del usuario, intereses, profesión, etc...
+                                </p>
+                            </div>
+                            <div class="d-flex gap-2 ms-3">
+                                <a href="#" class="btn btn-verde-azul px-3">Mensaje</a>
+                                <a href="#" class="btn btn-eliminar px-3">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="visibilidad-solicitudes" *ngIf="mostrarSolicitudes">
+                <div class="mt-4">
+                    <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of solicitudesDelUsuario">
+                        <div class="card-body d-flex align-items-center p-3">
+                            <div class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px; background-color: #e2d5fa;"></div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center flex-wrap">
+                                    <h6 class="card-title mb-0 me-2" style="font-size: 16px;">Usuario Ejemplo</h6>
+                                        
+                                </div>
+                                <p class="card-text letra-gris mb-0 text-truncate mt-2" style="max-width: 450px; font-size: 14px;">
+                                    Te envió una solicitud de amistad
+                                </p>
+                            </div>
+                            <div class="d-flex gap-2 ms-3">
+                                <a href="#" class="btn btn-ver-perfil text-white px-3">Ver perfil</a>
+                                <a href="#" class="btn btn-verde-azul px-3">Aceptar</a>
+                                <a href="#" class="btn btn-eliminar px-3">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

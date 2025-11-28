@@ -1,0 +1,12 @@
+.letra-gris{
+    color: #595c5f;
+}
+.btn-gris{
+    background-color: #f3ecff;
+    color: white;
+    border-radius: 20px;
+    border-color: #823fff;
+    color: #a06dff;
+    border-width: 3px;
+    /* font-size: 14px; */
+}

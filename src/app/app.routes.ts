@@ -4,6 +4,7 @@ import { SignUpComponent } from './auth/features/sign-up/sign-up.component';
 import { RecuperarCuentaComponent } from './recuperar-cuenta/recuperar-cuenta.component';
 import { CodigoVerificacionComponent } from './codigo-verificacion/codigo-verificacion.component';
 import { ConfigCuentaComponent } from './config-cuenta/config-cuenta.component';
+import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'config-cuenta',
     component: ConfigCuentaComponent
+  },
+  {
+    path: 'pago',
+    component: MetodoPagoComponent
   },
 
 

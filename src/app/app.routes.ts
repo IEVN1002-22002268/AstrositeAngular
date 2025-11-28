@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { SignUpComponent } from './auth/features/sign-up/sign-up.component';
 import { BusquedaAmigosComponent } from './busqueda-amigos/busqueda-amigos.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { SingleProductComponent } from './single-product/single-product.component';
 import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contrasenna.component';
 import { ReporteSoporteTecComponent } from './reporte-soporte-tec/reporte-soporte-tec.component';
 import { UsuariosBloqueadosComponent } from './usuarios-bloqueados/usuarios-bloqueados.component';
@@ -40,6 +42,14 @@ export const routes: Routes = [
   {
     path: 'historial',
     component: HistorialComprasComponent
+  },
+  { 
+    path: 'juego', 
+    component: SingleProductComponent 
+  },
+  { 
+    path: 'perfil', 
+    component: PerfilComponent 
   },
   // (Opcional) Si entran a la raíz, redirigir al catálogo o a donde quieras
   { path: '', redirectTo: 'catalogo', pathMatch: 'full' }

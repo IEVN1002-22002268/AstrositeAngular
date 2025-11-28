@@ -1,0 +1,30 @@
+
+.game-card{
+  margin-left: 10%;
+  width: 80%;
+}
+
+.text-verde{
+  color: #4DD3A3;
+  font-weight: bold;
+}
+
+.btn-borrar{
+    background-color: #f3ecff00;
+    border-radius: 20px;
+    border-color: #FF4D7F;
+    color: #FF4D7F;
+    border-width: 3px;
+    /* font-size: 14px; */
+}
+
+.btn-borrar:hover{
+    background-color: #ff4d7f2a;
+}
+
+.btn-volver{
+    background-color: #932FFF;
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 10px 15px;
+}

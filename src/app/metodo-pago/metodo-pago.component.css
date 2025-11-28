@@ -1,0 +1,43 @@
+section{
+    background-color: #f2f0f0;
+    /* background-color: #212126; */
+}
+
+label{
+    color: #322d3a;
+}
+
+.color-card {
+    background-color: #fcfcff;
+}
+
+.txt-signup{
+    font-size: 15px;
+    color: #322d3a;
+}
+
+.btn-principal{
+  background: linear-gradient(90deg, #5170FF 0%, #FF66C4 100%);
+  border: none;
+  border-radius: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-principal:hover {
+  box-shadow: 0 0px 15px #ddcbff;
+  transform: scale(1.02);
+  color: white;
+}
+
+.btn-principal2{
+  background: linear-gradient(90deg, #5157FF 0%, #66EBFF 100%);
+  border: none;
+  border-radius: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-principal2:hover {
+  box-shadow: 0 0px 15px #ddcbff;
+  transform: scale(1.02);
+  color: white;
+}

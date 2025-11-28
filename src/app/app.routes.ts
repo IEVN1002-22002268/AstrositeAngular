@@ -5,10 +5,15 @@ import { BusquedaAmigosComponent } from './busqueda-amigos/busqueda-amigos.compo
 import { PerfilComponent } from './perfil/perfil.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contrasenna.component';
+import { CodigoVerificacionComponent } from './codigo-verificacion/codigo-verificacion.component';
 import { ReporteSoporteTecComponent } from './reporte-soporte-tec/reporte-soporte-tec.component';
+import { ConfigCuentaComponent } from './config-cuenta/config-cuenta.component';
+import { RecuperarCuentaComponent } from './recuperar-cuenta/recuperar-cuenta.component';
 import { UsuariosBloqueadosComponent } from './usuarios-bloqueados/usuarios-bloqueados.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { HistorialComprasComponent } from './historial-compras/historial-compras.component';
+import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
+
 
 export const routes: Routes = [
   {
@@ -24,7 +29,23 @@ export const routes: Routes = [
     component: SignUpComponent
   },
   {
-    path: 'cambiar-contraseña',
+    path: 'recuperar-cuenta',
+    component: RecuperarCuentaComponent
+  },
+  {
+    path: 'codigoveri',
+    component: CodigoVerificacionComponent
+  },
+  {
+    path: 'config-cuenta',
+    component: ConfigCuentaComponent
+  },
+  {
+    path: 'pago',
+    component: MetodoPagoComponent
+  },
+  {
+    path: 'cambiar-contrasena',
     component: CambiarContrasennaComponent
   },
   {
@@ -54,3 +75,4 @@ export const routes: Routes = [
   // (Opcional) Si entran a la raíz, redirigir al catálogo o a donde quieras
   { path: '', redirectTo: 'catalogo', pathMatch: 'full' }
 ];
+

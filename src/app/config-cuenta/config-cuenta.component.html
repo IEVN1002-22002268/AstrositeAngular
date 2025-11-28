@@ -1,0 +1,56 @@
+<button class="btn btn-principal" data-bs-toggle="modal" data-bs-target="#configuracionCuentaModal">Configuración de cuenta</button>
+
+<div class="modal fade" id="configuracionCuentaModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 20px; border: none;">
+      <div class="modal-body color-card" style="border-radius: 20px; padding: 35px 45px;">
+        <div class="row">
+
+          <div class="col-12 d-flex align-items-center mb-4">
+              <div style="width: 90px; height: 90px; background-color: #d8c9ff; border-radius: 50%;"></div>
+
+              <div class="ms-4">
+                  <h4 class="fw-bold mb-1" style="color: #1c1b1f;">Usuario Ejemplo</h4>
+                  <p class="txt-signup mb-0" style="font-size: 15px; color: #6d6a72;">Descripción del perfil, intereses, profesión, etc.</p>
+              </div>
+          </div>
+
+            <div class="col-12 mb-4">
+                <hr style="border: 1px solid #e5d9ff; opacity: 1;">
+            </div>
+
+            <form>
+                <div class="row">
+
+                    <div class="col-12 col-md-6">
+                        <label class="fw-bold form-label label-small">Nombre</label>
+                        <input class="form-control input-rounded mb-3" type="text" placeholder="Tu nombre">
+
+                        <label class="fw-bold form-label label-small">Descripción</label>
+                        <textarea class="form-control input-rounded mb-3" rows="4" placeholder="Añade una descripción de tu perfil. Profesión, hobbies, etc..."></textarea>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label class="fw-bold form-label label-small">Username</label>
+                        <input class="form-control input-rounded mb-3" type="text" placeholder="Nombre de usuario único">
+
+                        <label class="fw-bold form-label label-small">Correo asociado</label>
+                        <input class="form-control input-rounded mb-3" type="email" placeholder="email de recuperación">
+
+                        <label class="fw-bold form-label label-small">Teléfono</label>
+                        <input class="form-control input-rounded mb-3" type="text" placeholder="+52 477 123 1234">
+                    </div>
+
+                </div>
+
+                <div class="text-start mt-3">
+                    <button class="btn btn-cancelar px-4 py-2" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn text-white btn-principal px-4 py-2" type="button" style="margin-left: 8px;">Guardar</button>
+                </div>
+            </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

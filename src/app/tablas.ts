@@ -21,3 +21,7 @@ export interface Users{
   descripcion: string,
   telefono: number
 }
+
+export interface History{
+
+}

@@ -7,5 +7,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './historial-compras.component.css'
 })
 export class HistorialComprasComponent {
-  listaHistorial = [1, 2, 3]
+  listaHistorial = [
+    {}
+  ]
 }

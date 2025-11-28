@@ -18,14 +18,14 @@
     </div>
 
     <div class="row mt-4 justify-content-center g-3">
-        <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juego of listaJuegos">
+        <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juego of dataSource.games">
             <div class="card h-100" style="border-style: none; cursor: pointer;">
-                <img [src]="juego.img" class="card-img-top" alt="...">
+                <img src="td-wall.jpg" class="card-img-top" alt="...">
 
                 <div class="mt-4">
-                    <h5 class="card-title">{{ juego.titulo }}</h5>
-                    <p class="card-text mb-2" style="color: #595c5f;">{{ juego.desc }}</p>
-                    <a href="#" class="descuento-producto">{{ juego.descuento }}</a>
+                    <h5 class="card-title">{{ juego.Nombre }}</h5>
+                    <p class="card-text mb-2" style="color: #595c5f;">{{ juego.Descripcion }}</p>
+                    <a href="#" class="descuento-producto" *ngIf="juego.Descuento > 0">-{{ juego.Descuento }}%</a>
                 </div>
             </div>
         </div>

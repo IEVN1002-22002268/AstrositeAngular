@@ -11,11 +11,11 @@ export interface Games{
 }
 
 export interface Users{
-  id_user: number,
+  id_user?: number,
   correo: string,
   username: string,
   nombre: string,
-  constrasenna: string,
+  contrasenna: string,
   fechaNac: Date,
   foto: string,
   descripcion: string,

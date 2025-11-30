@@ -15,14 +15,11 @@ export class SignUpComponent {
   formGroup!: FormGroup;
 
   registroU : Users ={
-    correo : "",
-    username : "",
-    nombre: "",
-    contrasenna: "",
-    fechaNac : new Date(),
-    foto: "",
-    descripcion: "",
-    telefono: 0
+    Correo : "",
+    Username : "",
+    Nombre: "",
+    Contrasena: "",
+    FechaNac : new Date(),
   }
 
   constructor(private fb: FormBuilder,public userDB:ApiService, private router:Router) { }
@@ -34,29 +31,26 @@ export class SignUpComponent {
   InitForm(): FormGroup {
     console.log("InitForm")
     return this.fb.group({
-      correo: [''],
-      username: [''],
-      nombre: [''],
-      fechaNac: [''],
-      contrasenna: [''],
-      contrasennaDos: ['']
+      _correo: [''],
+      _username: [''],
+      _nombre: [''],
+      _fechaNac: [''],
+      _contrasenna: [''],
+      _contrasennaDos: ['']
     })
   }
 
   OnSubmit():void {
     console.log("OnSubmit")
-    const {correo, username, nombre, fechaNac, contrasenna, contrasennaDos}= this.formGroup.value;
+    const {_correo, _username, _nombre, _fechaNac, _contrasenna, _contrasennaDos}= this.formGroup.value;
 
-    if(contrasenna == contrasennaDos){
+    if(_contrasenna == _contrasennaDos){
       console.log("Las contraseñas coinciden")
-      this.registroU.correo = correo,
-      this.registroU.username = username,
-      this.registroU.nombre = nombre,
-      this.registroU.contrasenna = contrasenna,
-      this.registroU.fechaNac = fechaNac,
-      this.registroU.foto = "",
-      this.registroU.descripcion = "",
-      this.registroU.telefono = 0
+      this.registroU.Correo = _correo,
+      this.registroU.Username = _username,
+      this.registroU.Nombre = _nombre,
+      this.registroU.Contrasena = _contrasenna,
+      this.registroU.FechaNac = _fechaNac
       this.Agregar();
     }else{
       console.log("Las contraseñas no coinciden");
@@ -72,14 +66,11 @@ export class SignUpComponent {
       error: error=>console.log(error)})
 
       this.registroU = {
-        correo : "",
-        username : "",
-        nombre: "",
-        contrasenna: "",
-        fechaNac : new Date(),
-        foto: "",
-        descripcion: "",
-        telefono: 0
+        Correo : "",
+        Username : "",
+        Nombre: "",
+        Contrasena: "",
+        FechaNac : new Date(),
       }
       /* this.router.navigate(['/sign-in']) */
   }

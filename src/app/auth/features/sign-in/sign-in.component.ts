@@ -18,15 +18,14 @@ export class SignInComponent {
   dataSource:any=[];
 
   infoUser : Users = {
-    id_user : 0,
     Correo : "",
     Username : "",
     Nombre: "",
     Contrasena: "",
     FechaNac : new Date(),
-    foto: "",
-    descripcion: "",
-    telefono: 0
+    Foto: "",
+    Descripcion: "",
+    Telefono: 0
   }
 
   formLogin = {
@@ -62,8 +61,13 @@ export class SignInComponent {
       this.dataSource=response; //Se tiene que sacar User de aqui y pasarlos a infoUser
       console.log(this.dataSource)
 
-      this.cookieService.set('user', JSON.stringify(this.dataSource['user']))
-      console.log(JSON.parse(this.cookieService.get('user')))
+      if(this.dataSource['exito']){
+        this.cookieService.set('user', JSON.stringify(this.dataSource['user']))
+        console.log(JSON.parse(this.cookieService.get('user')))
+        this.router.navigate(['/perfil/'+ this.dataSource['user'].ID_User]).then(() => {
+          window.location.reload();
+        });
+      }
     },
       complete:()=>console.info(),
       error: error=>console.log(error)})
@@ -73,6 +77,6 @@ export class SignInComponent {
         Contrasena: ""
       }
 
-      /* this.router.navigate(['/perfil']) */ //Deberia redirigir al perfil si el inicio fue exitoso
+
   }
 }

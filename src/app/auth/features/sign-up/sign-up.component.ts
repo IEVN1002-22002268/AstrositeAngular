@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { Users } from '../../../tablas';
+import { CookieService } from 'ngx-cookie-service';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -13,6 +14,7 @@ import { DatePipe } from '@angular/common';
 })
 export class SignUpComponent {
   formGroup!: FormGroup;
+  dataSource:any=[];
 
   registroU : Users ={
     Correo : "",
@@ -22,7 +24,7 @@ export class SignUpComponent {
     FechaNac : new Date(),
   }
 
-  constructor(private fb: FormBuilder,public userDB:ApiService, private router:Router) { }
+  constructor(private fb: FormBuilder,public userDB:ApiService, private router:Router, private cookieService:CookieService) { }
 
    ngOnInit():void {
     this.formGroup=this.InitForm();
@@ -61,7 +63,15 @@ export class SignUpComponent {
     console.log("Agregar")
     console.log(this.registroU)
     this.userDB.registrarUsuario(this.registroU).subscribe({
-      next:()=>console.log(),
+      next: response=>{
+
+      this.dataSource=response; //Se tiene que sacar User de aqui y pasarlos a infoUser
+      console.log(this.dataSource)
+
+      if(this.dataSource['exito']){
+        this.router.navigate(['/sign-in'])
+      }
+    },
       complete:()=>console.info(),
       error: error=>console.log(error)})
 

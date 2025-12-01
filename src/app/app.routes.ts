@@ -74,7 +74,7 @@ export const routes: Routes = [
     component: SingleProductComponent
   },
   {
-    path: 'perfil',
+    path: 'perfil/:id',
     component: PerfilComponent
   },
   // (Opcional) Si entran a la raíz, redirigir al catálogo o a donde quieras

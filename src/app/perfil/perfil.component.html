@@ -45,7 +45,8 @@
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="jugados-pane" role="tabpanel" tabindex="0">
-            <div class="row g-4"> 
+
+            <!-- <div class="row g-4"> 
                 <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juegoUser of juegosDelUsuario">
                     <div class="card h-100" style="border-style: none; cursor: pointer;">
                         <img src="td-wall.jpg" class="card-img-top" alt="Project Sunnight">
@@ -53,6 +54,19 @@
                         <div class="mt-3">
                             <h5 class="card-title">Project Sunnight</h5>
                             <p class="card-text mb-2" style="color: #595c5f;">Horror survival zombies sandbox</p>
+                            <span class="letra-verde">Horas jugadas: 40hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row mt-4 g-3"><!-- col-6 col-md-4 col-lg-3 col-xl-2 -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let juegoUser of juegosDelUsuario">
+                    <div class="card h-100" style="border-style: none; cursor: pointer; transition: transform 0.2s;">
+                        <img src="td-wall.jpg" class="card-img-top" alt="...">
+
+                        <div class="mt-4 mb-4">
+                            <h5 class="card-title text-truncate">Titulo Juego</h5>
+                            <p class="card-text mb-2 text-truncate" style="color: #595c5f;">Descripcion del juego</p>
                             <span class="letra-verde">Horas jugadas: 40hrs</span>
                         </div>
                     </div>
@@ -66,7 +80,7 @@
 
         <div class="tab-pane fade" id="amigos-pane" role="tabpanel" tabindex="0">
             <div class="row align-items-center">
-                <h6 class="col-lg-2 fw-semibold text-end">
+                <h6 class="col-lg-2 fw-semibold text-center">
                     Buscar amigos:
                 </h6>
                 <div class="col-lg-7">
@@ -75,7 +89,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="d-flex gap-2 ms-3">
+                    <div class="d-flex gap-2 ms-3 text-center">
                         <a href="javascript:void(0)" class="btn btn-solicitudes px-3" (click)="mostrarSolicitudes=!mostrarSolicitudes">
                             {{mostrarSolicitudes ? 'Ver Usuarios':'Ver Solicitudes'}}</a>
                     </div>
@@ -84,22 +98,25 @@
             <div id="visibilidad-usuarios" *ngIf="!mostrarSolicitudes">
                 <div class="mt-4">
                     <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of amigosDelUsuario">
-                        <div class="card-body d-flex align-items-center p-3">
-                            <div class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px; background-color: #e2d5fa;"></div>
-                            <div class="flex-grow-1">
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <h6 class="card-title mb-0 me-2" style="font-size: 16px;">Usuario Ejemplo</h6>
-                                        <span class="conectado small">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="8" r="8"/>
-                                            </svg> Conectado
-                                        </span>
+                        <div class="card-body d-flex flex-column flex-md-row align-items-md-center p-3">
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <img src="wall-nat.jpg" alt="" class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px;">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center flex-wrap">
+                                        <h6 class="card-title mb-0 me-2">Usuario Ejemplo</h6> <!-- style="font-size: 16px;" -->
+                                            <span class="conectado small">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8"/>
+                                                </svg> Conectado
+                                            </span>
+                                    </div>
+                                    <p class="card-text letra-gris mb-0 text-truncate text-md-truncate mt-1" style="max-width: 100%; max-width: 450px;">
+                                        Descripción del usuario, intereses, profesión, etc...
+                                    </p>
                                 </div>
-                                <p class="card-text letra-gris mb-0 text-truncate mt-2" style="max-width: 450px; font-size: 14px;">
-                                    Descripción del usuario, intereses, profesión, etc...
-                                </p>
                             </div>
-                            <div class="d-flex gap-2 ms-3">
+                            
+                            <div class="d-flex gap-2 flex-sm-row mt-2 mt-md-0 align-self-md-center align-self-start">
                                 <a href="#" class="btn btn-verde-azul px-3">Mensaje</a>
                                 <a href="#" class="btn btn-eliminar px-3">Eliminar</a>
                             </div>
@@ -110,18 +127,20 @@
             <div id="visibilidad-solicitudes" *ngIf="mostrarSolicitudes">
                 <div class="mt-4">
                     <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of solicitudesDelUsuario">
-                        <div class="card-body d-flex align-items-center p-3">
-                            <div class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px; background-color: #e2d5fa;"></div>
-                            <div class="flex-grow-1">
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <h6 class="card-title mb-0 me-2" style="font-size: 16px;">Usuario Ejemplo</h6>
-                                        
+                        <div class="card-body d-flex flex-column flex-md-row align-items-md-center p-3">
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <img src="wall-nat.jpg" alt="" class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px;">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex align-items-center flex-wrap">
+                                        <h6 class="card-title mb-0 me-2">Usuario Ejemplo</h6>
+                                    </div>
+                                    <p class="card-text letra-gris mb-0 text-truncate text-md-truncate mt-1" style="max-width: 100%; max-width: 450px;">
+                                        Te envió una solicitud de amistad
+                                    </p>
                                 </div>
-                                <p class="card-text letra-gris mb-0 text-truncate mt-2" style="max-width: 450px; font-size: 14px;">
-                                    Te envió una solicitud de amistad
-                                </p>
                             </div>
-                            <div class="d-flex gap-2 ms-3">
+                            
+                            <div class="d-flex gap-2 flex-sm-row mt-2 mt-md-0 align-self-md-center align-self-start">
                                 <a href="#" class="btn btn-ver-perfil text-white px-3">Ver perfil</a>
                                 <a href="#" class="btn btn-verde-azul px-3">Aceptar</a>
                                 <a href="#" class="btn btn-eliminar px-3">Eliminar</a>

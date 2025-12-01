@@ -1,15 +1,9 @@
-<div class="container mb-5">
-    <div class="row align-items-center">
+<div class="container-fluid px-4 px-md-5 mb-5">
+    <div class="row align-items-end justify-content-between">
         <div class="col-12 col-md-7">
             <h2 class="mt-5">Catálogo de juegos</h2>
-<!--             <div class="mt-4 d-flex gap-2 flex-wrap">
-                <button class="btn btn-seleccionado px-3">Todas las categorías</button>
-                <button class="btn btn-no-seleccionado px-3">VR</button>
-                <button class="btn btn-no-seleccionado px-3">PC</button>
-                <button class="btn btn-no-seleccionado px-3">Móviles</button>
-            </div> -->
-        </div>
-        <div class="col-12 col-md-5 mt-3 mt-md-0">
+            </div>
+        <div class="col-12 col-md-5 col-lg-4">
             <div class="cont-search">
                 <input class="form-control buscador-catalogo" type="search" placeholder="¿Qué estás buscando?"
                 [(ngModel)]="terminoBusqueda" (input)="filtrarJuegos()">
@@ -17,14 +11,16 @@
         </div>
     </div>
 
-    <div class="row mt-4 justify-content-center g-3">
-        <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juego of dataSource.games">
-            <div class="card h-100" style="border-style: none; cursor: pointer;">
+    <div class="row mt-4 g-3"><!-- col-6 col-md-4 col-lg-3 col-xl-2 -->
+        <div class="col-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let juego of dataSource.games">
+            <div class="card h-100" style="border-style: none; cursor: pointer; transition: transform 0.2s;">
+                <!-- <img [src]="juego.img || 'assets/td-wall.jpg'" class="card-img-top" alt="..."> -->
                 <img src="td-wall.jpg" class="card-img-top" alt="...">
 
-                <div class="mt-4">
-                    <h5 class="card-title">{{ juego.Nombre }}</h5>
-                    <p class="card-text mb-2" style="color: #595c5f;">{{ juego.Descripcion }}</p>
+                <!-- <div class="card-body mt-2"> -->
+                <div class="mt-4 mb-4">
+                    <h5 class="card-title text-truncate">{{ juego.Nombre }}</h5>
+                    <p class="card-text mb-2 text-truncate" style="color: #595c5f;">{{ juego.Descripcion }}</p>
                     <a href="#" class="descuento-producto" *ngIf="juego.Descuento > 0">-{{ juego.Descuento }}%</a>
                 </div>
             </div>

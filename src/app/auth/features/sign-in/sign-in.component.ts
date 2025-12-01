@@ -4,6 +4,8 @@ import { Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { Users } from '../../../tablas';
 
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-sign-in',
   imports: [ReactiveFormsModule, RouterLink],
@@ -32,7 +34,7 @@ export class SignInComponent {
     Contrasena: ""
   }
 
-  constructor(private fb: FormBuilder,public userDB:ApiService, private router:Router) { }
+  constructor(private fb: FormBuilder,public userDB:ApiService, private router:Router, private cookieService:CookieService) { }
 
   ngOnInit():void {
     this.formGroup=this.InitForm();
@@ -59,6 +61,9 @@ export class SignInComponent {
 
       this.dataSource=response; //Se tiene que sacar User de aqui y pasarlos a infoUser
       console.log(this.dataSource)
+
+      this.cookieService.set('user', JSON.stringify(this.dataSource['user']))
+      console.log(JSON.parse(this.cookieService.get('user')))
     },
       complete:()=>console.info(),
       error: error=>console.log(error)})

@@ -61,10 +61,10 @@ export class SingleProductComponent {
     if(this.cookieService.get('carrito')){
       this.carrito = JSON.parse(this.cookieService.get('carrito'))
       this.carrito.push(this.infoJuego)
-      this.cookieService.set('carrito', JSON.stringify(this.carrito))
+      this.cookieService.set('carrito', JSON.stringify(this.carrito), { path : '/'})
     }else{
       this.carrito.push(this.infoJuego)
-      this.cookieService.set('carrito', JSON.stringify(this.carrito))
+      this.cookieService.set('carrito', JSON.stringify(this.carrito), { path : '/'})
     }
     this.DesactivarBoton()
   }

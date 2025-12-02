@@ -4,105 +4,67 @@
 
             <div class="col-12 col-md-6 mb-4">
                 <div class="card color-card shadow-sm" style="border-radius: 20px; padding: 25px; border: none;">
-
+                  <form [formGroup]="formGroup" (ngSubmit)="OnSubmit()">
                     <h4 class="fw-bold mb-4" style="color: #1c1b1f;">Método de pago</h4>
 
                     <div class="d-flex justify-content-start gap-4 mb-4">
-                        <label><input type="radio" name="metodoPago"> Tarjeta de crédito</label>
-                        <label><input type="radio" name="metodoPago"> Tarjeta de débito</label>
-                        <label><input type="radio" name="metodoPago"> PayPal</label>
+                        <label><input type="radio" id="_tipo" name="_tipo" formControlName="_tipo" value="Tarjeta de crédito"> Tarjeta de crédito</label>
+                        <label><input type="radio" id="_tipo" name="_tipo" formControlName="_tipo" value="Tarjeta de débito"> Tarjeta de débito</label>
+                        <label><input type="radio" id="_tipo" name="_tipo" formControlName="_tipo" value="PayPal"> PayPal</label>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3">
                             <label class="fw-bold form-label label-small">Número de la tarjeta</label>
-                            <input class="form-control input-rounded" type="text" placeholder="XXXX XXXX XXXX XXXX">
+                            <input id="_numeroTarjeta" name="_numeroTarjeta" formControlName="_numeroTarjeta" class="form-control input-rounded" type="text" placeholder="XXXX XXXX XXXX XXXX">
                         </div>
 
                         <div class="col-6 col-md-3 mb-3">
                             <label class="fw-bold form-label label-small">Vigencia</label>
-                            <input class="form-control input-rounded" type="text" placeholder="00/00">
+                            <input id="_vigencia" name="_vigencia" formControlName="_vigencia" class="form-control input-rounded" type="text" placeholder="00/00">
                         </div>
 
                         <div class="col-6 col-md-3 mb-3">
                             <label class="fw-bold form-label label-small">CVC</label>
-                            <input class="form-control input-rounded" type="text" placeholder="XXX">
+                            <input id="_cvc" name="_cvc" formControlName="_cvc" class="form-control input-rounded" type="text" placeholder="XXX">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3">
                             <label class="fw-bold form-label label-small">Nombre del propietario</label>
-                            <input class="form-control input-rounded" type="text" placeholder="Nombre(s)">
+                            <input id="_nombrePropietario" name="_nombrePropietario" formControlName="_nombrePropietario" class="form-control input-rounded" type="text" placeholder="Nombre(s)">
                         </div>
 
                         <div class="col-12 col-md-6 mb-4">
                             <label class="fw-bold form-label label-small">Apellidos del propietario</label>
-                            <input class="form-control input-rounded" type="text" placeholder="Apellido(s)">
-                        </div>
-                    </div>
-
-                    <div class="text-start">
-                        <button class="btn btn-principal text-white px-4 py-2" type="button">Aceptar</button>
-                    </div>
-
-                </div>
-            </div>
-
-
-
-            <!-- ------------------ -->
-            <div class="col-12 col-md-6 mb-4">
-                <div class="card color-card shadow-sm" style="border-radius: 20px; padding: 25px; border: none; height: 450px;">
-
-                    <h4 class="fw-bold mb-4" style="color: #1c1b1f;">Datos del envío</h4>
-
-                    <div class="row">
-                        <div class="col-12 col-md-6 mb-3">
-                            <label class="fw-bold form-label label-small">Calle</label>
-                            <input class="form-control input-rounded" type="text" placeholder="Nombre calle">
-                        </div>
-
-                        <div class="col-12 col-md-6 mb-3">
-                            <label class="fw-bold form-label label-small">Colonia</label>
-                            <input class="form-control input-rounded" type="text" placeholder="Nombre colonia">
+                            <input id="_apellidoPropietario" name="_apellidoPropietario" formControlName="_apellidoPropietario" class="form-control input-rounded" type="text" placeholder="Apellido(s)">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3">
                             <label class="fw-bold form-label label-small">Código postal</label>
-                            <input class="form-control input-rounded" type="text" placeholder="ej. 47582">
+                            <input id="_cp" name="_cp" formControlName="_cp" class="form-control input-rounded" type="text" placeholder="ej. 47582">
                         </div>
 
-                        <div class="col-12 col-md-6 mb-3">
-                            <label class="fw-bold form-label label-small">Entidad federativa</label>
-                            <select class="form-control input-rounded">
-                                <option>Seleccione su estado</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-12 col-md-4 mb-3">
                             <label class="fw-bold form-label label-small">País</label>
-                            <select class="form-control input-rounded">
+                            <select name="_pais" id="_pais" formControlName="_pais" class="form-control input-rounded">
                                 <option>Seleccione</option>
+                                <option *ngFor="let item of pais" value="{{item}}">{{item}}</option>
                             </select>
-                        </div>
-
-                        <div class="col-12 col-md-8 mb-4">
-                            <label class="fw-bold form-label label-small">Descripción del domicilio</label>
-                            <input class="form-control input-rounded" type="text" placeholder="ej. Casa de dos pisos, color azul…">
                         </div>
                     </div>
 
                     <div class="text-start">
-                        <button class="btn btn-principal2 text-white px-4 py-2" type="button">Aceptar</button>
+                        <button class="btn btn-principal text-white px-4 py-2" type="submit">Aceptar</button>
                     </div>
-
+                    <p *ngIf="dataSource['exito']" class="text-success">Datos personales actualizados</p>
+                  </form>
                 </div>
             </div>
+
 
         </div>
     </div>

@@ -8,7 +8,7 @@
                         <div class="col-12 d-flex align-items-center">
                             <div class="card-body p-5 text-black">
 
-                                <form>
+                                <form [formGroup]="formGroup" (ngSubmit)="OnSubmit()">
                                     <div class="text-center mb-3">
                                         <span class="h2 fw-bold" style="color: #1c1b1f;">Recupera tu cuenta</span>
                                     </div>
@@ -17,20 +17,22 @@
 
                                     <div class="mb-4">
                                         <label class="form-label fw-bold" style="font-size: 14px;">Correo electrónico</label>
-                                        <input type="text" class="form-control form-control-sm input-rounded" placeholder="Correo electrónico"/>
+                                        <input type="text" id="_correo" name="_correo" formControlName="_correo" class="form-control form-control-sm input-rounded" placeholder="Correo electrónico"/>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="form-label fw-bold" style="font-size: 14px;">Contraseña</label>
-                                        <input type="password" class="form-control form-control-sm input-rounded" placeholder="Contraseña"/>
+                                        <input type="password" id="_contrasena" name="_contrasena" formControlName="_contrasena" class="form-control form-control-sm input-rounded" placeholder="Contraseña"/>
                                     </div>
 
                                     <div class="text-center mb-3">
-                                        <button class="btn text-white btn-principal px-5 py-2" type="button">Siguiente</button>
+                                        <button class="btn text-white btn-principal px-5 py-2" type="submit">Siguiente</button>
                                     </div>
 
-                                    <p class="fw-normal mb-0 txt-signup text-center" style="font-size: 14px;">¿Recordaste tus datos? <a href="#">Inicia sesión</a></p>
-                                </form>
+                                  </form>
+
+                                  <p *ngIf="dataSource['exito']" class="fw-normal mb-0 txt-signup text-center text-success" style="font-size: 20px;">Petición enviada</p>
+                                  <p class="fw-normal mb-0 txt-signup text-center" style="font-size: 14px;">¿Recordaste tus datos? <a [routerLink]="['/sign-in']">Inicia sesión</a></p>
 
                             </div>
                         </div>

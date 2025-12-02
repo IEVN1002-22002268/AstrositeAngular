@@ -1,5 +1,5 @@
 export interface Games{
-  ID_Juego: number,
+  ID_Juego?: number,
   Nombre: string,
   Descripcion: string,
   Imagen: string,
@@ -27,4 +27,44 @@ export interface Reports{
   Tema: string,
   Descripcion: string,
   Imagen: string
+}
+
+export interface Auth{
+  ID_Auth? : number,
+  ID_User : number,
+  Code : number
+}
+
+export interface Friends{
+  ID_User1?: number,
+  ID_User2?: number,
+  Status : number,
+  Fecha : Date
+}
+
+export interface Personal_data{
+  ID_Data?: number,
+  ID_User: number,
+  Tipo : string,
+  NumeroTarjeta: string,
+  Vigencia: string,
+  CVC: string,
+  NombrePropietario: string,
+  ApellidoPropietario: string,
+  Pais: string,
+  CP: number
+}
+
+export interface Recovery{
+  Correo: string,
+  Contrasena: string
+}
+
+export interface Sales{
+  ID_Sale?: number,
+  ID_User: number,
+  Fecha: Date,
+  ID_Juego: number,
+  PrecioTotal: number,
+  Descuento: number
 }

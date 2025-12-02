@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
-import { Games, Users, Reports } from './tablas';
+import { Games, Users, Reports, Recovery, Personal_data } from './tablas';
 
 @Injectable({
   providedIn: 'root'
@@ -59,4 +59,19 @@ export class ApiService {
   enviarReporte(datos:Reports){
     return this.http.post('http://127.0.0.1:5000/reporte', datos)
   }
+
+  //----------Recovery------------------------
+
+  recuperarCuenta(datos:Recovery){
+    return this.http.post('http://127.0.0.1:5000/recuperar-cuenta', datos)
+  }
+
+  //-----------Personal Data ----------------
+
+  setPersonalData(datos:Personal_data, id:number){
+    return this.http.put('http://127.0.0.1:5000/pago/' + id , datos)
+  }
 }
+
+
+  //----------Ventas----------------

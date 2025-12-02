@@ -5,16 +5,18 @@
                 <img src="wall-nat.jpg" class="img-fluid rounded" width="500px" height="auto" alt="...">
             </div>
             <div class="col-6 ps-3 d-flex flex-column justify-content-center">
-                <h1 class="fw-semibold">Project Sunnight</h1>
-                <p class="letra-gris fs-4 mt-3">A Horror survival zombies sandbox videogame</p>
-                <p class="fw-semibold fs-4 mt-2">$ 10,99 USD</p>
-                <p class="fw-normal fs-4 mt-2 letra-morada">10% de descuento</p>
-                
+                <h1 class="fw-semibold">{{infoJuego.Nombre}}</h1>
+                <p class="letra-gris fs-4 mt-3">{{infoJuego.Descripcion}}</p>
+                <p class="fw-semibold fs-4 mt-2">$ {{infoJuego.Precio}} USD</p>
+                <p class="fw-normal fs-4 mt-2 letra-morada" *ngIf="infoJuego.Descuento > 0">{{infoJuego.Descuento}}% de descuento</p>
+                <p class="fw-semibold fs-4 mt-2 text-success" *ngIf="infoJuego.Descuento > 0">$ {{precioFinal}} USD</p>
+
                 <div>
-                    <button class="btn btn-add-carrito text-white mt-3" style="font-size: 20px;">Añadir al carrito</button>
+                    <button [disabled]="_yaCarrito" (click)="AgregarCarrito()" class="btn btn-add-carrito text-white mt-3" style="font-size: 20px;">Añadir al carrito</button>
+                    <p *ngIf="_yaCarrito" class="fw-semibold fs-6 mt-3 ms-2 text-success">Añadido al carrito</p>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>

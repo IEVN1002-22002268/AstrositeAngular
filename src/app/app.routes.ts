@@ -70,7 +70,7 @@ export const routes: Routes = [
     component: HistorialComprasComponent
   },
   {
-    path: 'juego',
+    path: 'juego/:id',
     component: SingleProductComponent
   },
   {

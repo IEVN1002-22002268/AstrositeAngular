@@ -1,13 +1,13 @@
 export interface Games{
-  id_juego: number,
-  nombre: string,
-  descripcion: string,
-  imagen: string,
-  precio: number,
-  descuento: number,
-  genero: string,
-  plataforma: string,
-  clasificacion: string
+  ID_Juego: number,
+  Nombre: string,
+  Descripcion: string,
+  Imagen: string,
+  Precio: number,
+  Descuento: number,
+  Genero: string,
+  Plataforma: string,
+  Clasificacion: string
 }
 
 export interface Users{
@@ -22,6 +22,9 @@ export interface Users{
   Telefono?: number
 }
 
-export interface History{
-
+export interface Reports{
+  Correo: string,
+  Tema: string,
+  Descripcion: string,
+  Imagen: string
 }

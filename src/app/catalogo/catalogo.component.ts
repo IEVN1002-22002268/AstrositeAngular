@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-catalogo',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './catalogo.component.html',
   styleUrl: './catalogo.component.css'
 })
 export class CatalogoComponent {
   dataSource:any=[];
 
-  constructor (public gamesDB:ApiService) {}
+  constructor (public gamesDB:ApiService, private router:Router) {}
 
   listaJuegosOriginal = [
     { titulo: 'Project Sunnight', desc: 'Horror survival zombies sandbox', descuento: '10% OFF', img: 'td-wall.jpg', plataforma: 'PC' },
@@ -49,5 +50,9 @@ export class CatalogoComponent {
 
       return titulo.includes(termino) || descripcion.includes(termino);
     });
+  }
+
+  IrJuego(_IdGame : number){
+    this.router.navigate(['/juego/'+ _IdGame])
   }
 }

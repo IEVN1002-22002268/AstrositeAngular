@@ -12,8 +12,8 @@
     </div>
 
     <div class="row mt-4 g-3"><!-- col-6 col-md-4 col-lg-3 col-xl-2 -->
-        <div class="col-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let juego of dataSource.games">
-            <div class="card h-100" style="border-style: none; cursor: pointer; transition: transform 0.2s;">
+        <div  class="col-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let juego of dataSource.games">
+            <div type="button" (click)="IrJuego(juego.ID_Juego)" class="card h-100" style="border-style: none; cursor: pointer; transition: transform 0.2s;">
                 <!-- <img [src]="juego.img || 'assets/td-wall.jpg'" class="card-img-top" alt="..."> -->
                 <img src="td-wall.jpg" class="card-img-top" alt="...">
 

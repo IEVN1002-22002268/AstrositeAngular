@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
-import { Games, Users } from './tablas';
+import { Games, Users, Reports } from './tablas';
 
 @Injectable({
   providedIn: 'root'
@@ -51,4 +51,12 @@ export class ApiService {
     return this.http.delete<Users>('http://127.0.0.1:5000/perfil/' + id)
   }
 
+
+
+
+  //-----------Reportes-----------------------
+
+  enviarReporte(datos:Reports){
+    return this.http.post('http://127.0.0.1:5000/reporte', datos)
+  }
 }

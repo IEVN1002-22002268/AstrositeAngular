@@ -18,7 +18,8 @@ export class CatalogoComponent {
     { titulo: 'Project Sunnight', desc: 'Horror survival zombies sandbox', descuento: '10% OFF', img: 'td-wall.jpg', plataforma: 'PC' },
     { titulo: 'Reto Chef UTL',  desc: 'RPG futurista mundo abierto',     descuento: '20% OFF', img: 'wall-nat.jpg', plataforma: 'Mobile' }, // Cambié el nombre para que veas la diferencia
     { titulo: 'Party VR', desc: 'Horror survival zombies sandbox', descuento: '10% OFF', img: 'td-wall.jpg', plataforma: '' },
-    { titulo: 'Otro Juego', desc: 'Horror survival zombies sandbox', descuento: '10% OFF', img: 'wall-nat.jpg', plataforma: '' }
+    { titulo: 'Otro Juego', desc: 'Horror survival zombies sandbox', descuento: '10% OFF', img: 'wall-nat.jpg', plataforma: '' },
+    /* { titulo: 'Otro Juego', desc: 'Horror survival zombies sandbox', descuento: '10% OFF', img: 'wall-nat.jpg', plataforma: '' } */
   ];
 
   listaJuegos = [...this.listaJuegosOriginal];

@@ -1,4 +1,4 @@
-.btn-seleccionado{
+/* .btn-seleccionado{
     background-color: #eaddff;
     color: #4f378b;
     border-radius: 20px;
@@ -13,12 +13,7 @@
 }
 .buscador-catalogo{
     border-radius: 20px;
-    /* font-size: 14px; */
-    /* padding-top: 10px; */
 }
-/* .buscador-catalogo::placeholder{
-    font-size: 14px;
-} */
 .cont-search{
     margin-top: 80px;
 }
@@ -29,10 +24,57 @@
 .btn-morado{
     background-color: #823fff;
     color: white;
-    /* border-radius: 20px; */
-    /* font-size: 14px; */
-}
+} */
 
 
+/* Estilos Generales */
+    .btn-seleccionado {
+        background-color: #eaddff;
+        color: #4f378b;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+    }
 
+    .btn-no-seleccionado {
+        border-color: #cac4d0;
+        border-width: 1.4px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    .buscador-catalogo {
+        border-radius: 20px;
+        height: 45px; /* Altura fija para mejor estética */
+    }
+
+    .cont-search {
+        /* Eliminado el margin-top: 80px fijo. 
+           Ahora se controla con 'align-items-end' en el HTML para que sea responsive */
+        margin-top: 20px; 
+    }
+
+    /* Ajuste para pantallas medianas hacia arriba para el buscador */
+    @media (min-width: 768px) {
+        .cont-search {
+            margin-top: 0; /* En PC se alinea solo */
+            margin-bottom: 5px; /* Un pequeño ajuste visual para alinear con el texto del H2 */
+        }
+    }
+
+    .descuento-producto {
+        color: #891cff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .btn-morado {
+        background-color: #823fff;
+        color: white;
+    }
+    
+    /* Opcional: efecto hover en las tarjetas */
+    .card:hover {
+        transform: translateY(-5px);
+    }
 

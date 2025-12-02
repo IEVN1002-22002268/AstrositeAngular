@@ -24,6 +24,10 @@
     padding-right: 18px;
     /* font-size: 14px; */
 }
+.btn-morado:hover {
+  transform: scale(1.02);
+  color: white;
+}
 .btn-seleccionado{
     background-color: #efe5ff;
     color: #4f378b;
@@ -80,7 +84,7 @@
     font-weight: 700;
 }
 .letra-verde{
-    color: #10c583;
+    color: #06ad70;
 }
 .letra-amarrilla{
     color: #f3bb52;
@@ -93,6 +97,10 @@
     color: white;
     border-radius: 20px;
     /* font-size: 14px; */
+}
+.btn-verde-azul:hover {
+  transform: scale(1.02);
+  color: white;
 }
 .btn-ver-perfil{
     background: linear-gradient(90deg, #A756FF 0%, #FF40EF 100%);
@@ -121,5 +129,26 @@
     .img-perfil-cont {
         display: flex;
         justify-content: center;
+    }
+}
+.card-body .card-text {
+    white-space: normal !important; 
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: 100% !important;
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .card-body .card-text {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        -webkit-line-clamp: 1;
+        line-clamp: 2;
     }
 }

@@ -31,6 +31,11 @@ export class ApiService {
     return this.http.post('http://127.0.0.1:5000/registrar', datos)
   }
 
+  iniciarSesion(datos : {}){
+    console.log("Correo y contraseña: " + datos)
+    return this.http.post('http://127.0.0.1:5000/login', datos)
+  }
+
   public getSingleUser(id:number):Observable<Users>{
     console.log("Id usuario: " + id)
     return this.http.get<Users>('http://127.0.0.1:5000/perfil/' + id)

@@ -8,18 +8,18 @@
 
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 cont-info-user">
                 <div class="mb-3 mb-md-0">
-                    <h2 class="fw-semibold mb-2">Usuario Ejemplo</h2>
-                    <p class="text-muted mb-0">Descripción del perfil, intereses, profesión, etc.</p>
+                    <h2 class="fw-semibold mb-2">{{infoUser.Username}}</h2>
+                    <p class="text-muted mb-0">{{infoUser.Descripcion}}</p>
                 </div>
                 <div class="d-flex flex-column flex-md-row align-items-center gap-3">
                     <span style="color: #891cff">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                             <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-                        </svg> 10 amigos
+                        </svg> 10 amigos (No BD)
                     </span>
-                    
+
                     <div class="d-flex gap-2 acciones-usuario">
-                        <button class="btn btn-morado">Agregar 
+                        <button *ngIf="!_isOwner" class="btn btn-morado">Agregar
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
                             </svg>
@@ -45,12 +45,10 @@
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="jugados-pane" role="tabpanel" tabindex="0">
-
-            <!-- <div class="row g-4"> 
                 <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juegoUser of juegosDelUsuario">
                     <div class="card h-100" style="border-style: none; cursor: pointer;">
                         <img src="td-wall.jpg" class="card-img-top" alt="Project Sunnight">
-                        
+
                         <div class="mt-3">
                             <h5 class="card-title">Project Sunnight</h5>
                             <p class="card-text mb-2" style="color: #595c5f;">Horror survival zombies sandbox</p>
@@ -127,6 +125,7 @@
             <div id="visibilidad-solicitudes" *ngIf="mostrarSolicitudes">
                 <div class="mt-4">
                     <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of solicitudesDelUsuario">
+
                         <div class="card-body d-flex flex-column flex-md-row align-items-md-center p-3">
                             <div class="d-flex align-items-center flex-grow-1">
                                 <img src="wall-nat.jpg" alt="" class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px;">
@@ -137,6 +136,7 @@
                                     <p class="card-text letra-gris mb-0 text-truncate text-md-truncate mt-1" style="max-width: 100%; max-width: 450px;">
                                         Te envió una solicitud de amistad
                                     </p>
+
                                 </div>
                             </div>
                             

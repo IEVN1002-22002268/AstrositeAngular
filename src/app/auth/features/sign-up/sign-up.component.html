@@ -1,60 +1,60 @@
 <!-- registrarse -->
- <section class="vh-100"> 
+ <section class="vh-100">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-12 col-lg-10 col-xl-8">
                 <div class="card color-card" style="border-radius: 1rem; height: 500px; border: none">
-                    <div class="row g-0 h-100"> 
+                    <div class="row g-0 h-100">
                         <div class="col-md-5 d-none d-md-block">
-                            <img src="/wall-env.jpg" alt="login form" class="img-fluid" 
+                            <img src="/wall-env.jpg" alt="login form" class="img-fluid"
                                 style="border-radius: 1rem 0 0 1rem; height: 100%; object-fit: cover;" />
                         </div>
                         <div class="col-md-7 d-flex align-items-center">
                             <div class="card-body p-4 text-black">
-                                <form>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="h2 mb-0" style="color: #1c1b1f;">Crea una cuenta</span>
-                                    </div>
+                              <div class="d-flex align-items-center mb-2">
+                                  <span class="h2 mb-0" style="color: #1c1b1f;">Crea una cuenta</span>
+                              </div>
 
-                                    <p class="fw-normal mb-3 mt-1" id="txt-signup">¿Ya tienes una cuenta? <a href="#">Inicia sesión</a></p>
+                              <p class="fw-normal mb-3 mt-1" id="txt-signup">¿Ya tienes una cuenta? <a [routerLink]="['/sign-in']" href="">Inicia sesión</a></p>
+                                <form [formGroup]="formGroup" (ngSubmit)="OnSubmit()">
 
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-3">
                                             <label class="form-label small" for="" style="margin-bottom: 0;">Correo electrónico</label>
-                                            <input type="email" id="" class="form-control form-control-sm" placeholder="correo@dominio.com"/>
+                                            <input type="email" id="_correo" name="_correo" formControlName="_correo" class="form-control form-control-sm" placeholder="correo@dominio.com"/>
                                         </div>
                                         <div class="col-12 col-md-6 mb-3">
                                             <label class="form-label small" for="" style="margin-bottom: 0;">Username</label>
-                                            <input type="password" id="" class="form-control form-control-sm" placeholder="Ingresa un username"/>
+                                            <input type="text" id="_username" name="_username" formControlName="_username" class="form-control form-control-sm" placeholder="Ingresa un username"/>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-3">
                                             <label class="form-label small" for="" style="margin-bottom: 0;">Nombre completo</label>
-                                            <input type="text" id="" class="form-control form-control-sm" placeholder="Nombre completo"/>
+                                            <input type="text" id="_nombre" name="_nombre" formControlName="_nombre" class="form-control form-control-sm" placeholder="Nombre completo"/>
                                         </div>
                                         <div class="col-12 col-md-6 mb-3">
                                             <label class="form-label small" for="" style="margin-bottom: 0;">Fecha de nacimiento</label>
-                                            <input type="date" id="" class="form-control form-control-sm" style="color: #595c5f;" onfocus="this.style.color='black'" onchange="this.style.color='black'"/>
+                                            <input type="date" id="_fechaNac" name="_fechaNac" formControlName="_fechaNac" class="form-control form-control-sm" style="color: #595c5f;" onfocus="this.style.color='black'" onchange="this.style.color='black'"/>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-3">
                                             <label class="form-label small" for="" style="margin-bottom: 0;">Contraseña</label>
-                                            <input type="password" id="" class="form-control form-control-sm" placeholder="Contraseña segura"/>
+                                            <input type="password" id="_contrasenna" name="_contrasenna" formControlName="_contrasenna" class="form-control form-control-sm" placeholder="Contraseña segura"/>
                                         </div>
                                         <div class="col-12 col-md-6 mb-3">
                                             <label class="form-label small" for="" style="margin-bottom: 0;">Confirmar contraseña</label>
-                                            <input type="password" id="" class="form-control form-control-sm" placeholder="Confirma la contraseña"/>
+                                            <input type="password" id="_contrasennaDos" name="_contrasennaDos" formControlName="_contrasennaDos" class="form-control form-control-sm" placeholder="Confirma la contraseña"/>
                                         </div>
                                     </div>
 
                                     <div class="pt-1 mb-3 mt-2">
-                                        <button class="btn text-white btn-principal px-4" type="button">Registrarme</button>
+                                        <button class="btn text-white btn-principal px-4" type="submit">Registrarme</button>
                                     </div>
-                                    
+
                                 </form>
                             </div>
                         </div>

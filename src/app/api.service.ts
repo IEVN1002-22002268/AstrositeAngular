@@ -46,6 +46,9 @@ export class ApiService {
 
   }
 
+  cambiarContrasena(id:number, datos:Users){
+    return this.http.put('http://127.0.0.1:5000/perfil-contra/' + id, datos)
+  }
 
   public eliminarUsuario(id:number):Observable<Users>{
     return this.http.delete<Users>('http://127.0.0.1:5000/perfil/' + id)
@@ -68,6 +71,17 @@ export class ApiService {
     return this.http.get<Users>('http://127.0.0.1:5000/friendrequests/' + id)
   }
 
+  public blockSomeone(datos:Friends){
+    return this.http.post('http://127.0.0.1:5000/blocked', datos)
+  }
+
+  public cancelRequest(datos:Friends){
+    return this.http.post('http://127.0.0.1:5000/cancelrequest', datos)
+  }
+
+  public getBlockeds(id:number):Observable<Friends>{
+    return this.http.get<Friends>('http://127.0.0.1:5000/blocked/' + id)
+  }
   //-----------Reportes-----------------------
 
   enviarReporte(datos:Reports){

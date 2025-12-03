@@ -32,7 +32,7 @@
                               <li><a class="dropdown-item" [routerLink]="['/codigoveri']" type="button">Cambiar contraseña</a></li>
                             </ul>
                             <ul *ngIf="!_isOwner" class="dropdown-menu">
-                              <li><a class="dropdown-item" [routerLink]="['/config-cuenta']" type="button">Bloquear</a></li>
+                              <li><a class="dropdown-item" (click)="Bloquear()" type="button">Bloquear</a></li>
                             </ul>
                         </div>
                     </div>

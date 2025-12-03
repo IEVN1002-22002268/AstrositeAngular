@@ -243,4 +243,22 @@ export class PerfilComponent {
 
   }
 
+  Bloquear(){
+    this.friendReq = {
+      ID_User1: this.userCookie.ID_User,
+      ID_User2: this.infoUser.ID_User,
+      Fecha: new Date()
+    }
+    this.userDB.blockSomeone(this.friendReq).subscribe(
+      {
+        next: response=>{
+
+      this.dataSource=response;
+      console.log(this.dataSource)
+    },
+    error: error=>console.log(error)
+  }
+    );
+  }
+
 }

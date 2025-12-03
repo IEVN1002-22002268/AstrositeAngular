@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
-import { Personal_data, Users } from '../tablas';
+import { Personal_data, Users, Sales } from '../tablas';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -14,6 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class MetodoPagoComponent {
   formGroup!: FormGroup;
   dataSource:any=[];
+  dataSourceTwo:any=[];
   _user_id: any;
   userCookie: Users = {
       ID_User: 0,
@@ -27,6 +28,8 @@ export class MetodoPagoComponent {
       Telefono: 0
   }
 
+  carritoCookie: any = []
+
   regPersonalData : Personal_data = {
     ID_User: 0,
     Tipo: '',
@@ -37,6 +40,14 @@ export class MetodoPagoComponent {
     ApellidoPropietario: '',
     Pais: '',
     CP: 0,
+  }
+
+  saleData : Sales = {
+    ID_User: 0,
+    Fecha: new Date(),
+    ID_Juego: 0,
+    PrecioTotal: 0,
+    Descuento: 0
   }
 
   constructor(private fb: FormBuilder,public reportDB:ApiService, private cookieService:CookieService) { }
@@ -83,6 +94,10 @@ export class MetodoPagoComponent {
       this.userCookie = JSON.parse(this.cookieService.get('user'))
       this._user_id = this.userCookie.ID_User
     }
+
+    if(this.cookieService.get('carrito')){ //Si existe la cookie user hay sesion iniciada
+      this.carritoCookie = JSON.parse(this.cookieService.get('carrito'))
+    }
   }
 
 
@@ -116,6 +131,8 @@ export class MetodoPagoComponent {
     this.regPersonalData.CP = _cp
     this.Agregar();
 
+    this.RegistrarVenta();
+
   }
 
   Agregar():void {
@@ -129,6 +146,26 @@ export class MetodoPagoComponent {
       complete:()=>console.info(),
       error: error=>console.log(error)})
 
+  }
+
+  RegistrarVenta(){
+    if(this.cookieService.get('carrito')){ //Si existe la cookie user hay sesion iniciada
+      for(const item of this.carritoCookie){
+        this.saleData.ID_User = this._user_id,
+        this.saleData.Fecha = new Date()
+        this.saleData.ID_Juego = item.ID_Juego,
+        this.saleData.PrecioTotal = item.Precio,
+        this.saleData.Descuento = item.Precio - ((item.Precio * item.Descuento) / 100)
+
+      this.reportDB.setVenta(this.saleData).subscribe({
+        next: response=>{
+        this.dataSourceTwo=response;
+        console.log(this.dataSourceTwo)},
+        complete:()=>console.info(),
+        error: error=>console.log(error)})
+      }
+    }
+    this.cookieService.delete('carrito')
   }
 
 }

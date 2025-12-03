@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
-import { Games, Users, Reports, Recovery, Personal_data } from './tablas';
+import { Games, Users, Reports, Recovery, Personal_data, Friends, Auth, Sales } from './tablas';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +23,8 @@ export class ApiService {
 
   // --Solo Usuarios--
 
-  public getUsers():Observable<Users[]>{
-    return this.http.get<Users[]>('http://127.0.0.1:5000/busqueda-de-amigos')
+  getUsers(datos:Users){
+    return this.http.post('http://127.0.0.1:5000/busqueda-de-amigos', datos)
   }
 
   registrarUsuario(datos:Users){
@@ -36,9 +36,9 @@ export class ApiService {
     return this.http.post('http://127.0.0.1:5000/login', datos)
   }
 
-  public getSingleUser(id:number):Observable<Users>{
+  public getSingleUser(id:number, datos : Users){
     console.log("Id usuario: " + id)
-    return this.http.get<Users>('http://127.0.0.1:5000/perfil/' + id)
+    return this.http.post<Users>('http://127.0.0.1:5000/perfil/' + id, datos)
   }
 
   modificarUsuario(id:number, datos:Users){
@@ -51,8 +51,22 @@ export class ApiService {
     return this.http.delete<Users>('http://127.0.0.1:5000/perfil/' + id)
   }
 
+  //-----------Amigos----------------
+  public sendFriendRequest(datos:Friends){
+    return this.http.post('http://127.0.0.1:5000/friendrequest', datos)
+  }
 
+  public acceptFriend(datos:Friends){
+    return this.http.post('http://127.0.0.1:5000/friends', datos)
+  }
 
+  public getFriendList(id:number):Observable<Users>{
+    return this.http.get<Users>('http://127.0.0.1:5000/friends/' + id)
+  }
+
+  public getFriendRequest(id:number):Observable<Users>{
+    return this.http.get<Users>('http://127.0.0.1:5000/friendrequests/' + id)
+  }
 
   //-----------Reportes-----------------------
 
@@ -71,7 +85,27 @@ export class ApiService {
   setPersonalData(datos:Personal_data, id:number){
     return this.http.put('http://127.0.0.1:5000/pago/' + id , datos)
   }
+
+  //---------Verificacion-------------------
+  setCodigo(datos:Auth){
+    return this.http.post('http://127.0.0.1:5000/codigoveri', datos)
+  }
+
+  checkCode(datos :Auth){
+    return this.http.post('http://127.0.0.1:5000/correoveri', datos)
+  }
+
+  //-----------Ventas-----------------
+  setVenta(datos : Sales){
+    return this.http.post('http://127.0.0.1:5000/sales', datos)
+  }
+
+  public getHistory(id : number):Observable<Sales>{
+    return this.http.get<Sales>('http://127.0.0.1:5000/historial/' + id)
+  }
+
 }
 
 
-  //----------Ventas----------------
+
+

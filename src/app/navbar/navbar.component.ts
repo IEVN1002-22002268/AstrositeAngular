@@ -40,7 +40,7 @@ export class NavbarComponent {
   }
 
   Perfil(){
-    this.router.navigate(['/perfil/'+ this.infoUser.ID_User])
+    this.router.navigate(['/catalogo/']).then(() => { this.router.navigate(['/perfil/'+ this.infoUser.ID_User])})
   }
 
 

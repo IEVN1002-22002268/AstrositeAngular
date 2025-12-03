@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
-import { Users } from '../tablas';
+import { Users, Friends } from '../tablas';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-busqueda-amigos',
@@ -13,19 +14,28 @@ import { Users } from '../tablas';
 })
 export class BusquedaAmigosComponent {
   dataSource:any=[];
+  userCookie:any = []
   usersData:any=[];
   terminoBusqueda: string = '';
-
-  constructor(public userDB:ApiService, private router:Router) { }
+  friendReq : Friends = {
+    ID_User1: 0,
+    ID_User2: 0,
+    Fecha: new Date()
+  }
+  cantidadUsuarios : number = 0;
+  constructor(public userDB:ApiService, private router:Router, private cookieService:CookieService) { }
 
   ngOnInit(): void {
-     this.userDB.getUsers().subscribe(
+    this.userCookie = JSON.parse(this.cookieService.get('user'))
+
+     this.userDB.getUsers(this.userCookie).subscribe(
       {
         next: response=>{
 
       this.dataSource=response;
       this.usersData = this.dataSource['users']
-      console.log(this.usersData)
+      this.cantidadUsuarios = this.usersData.length;
+      console.log(this.dataSource)
     },
     error: error=>console.log(error)
   }
@@ -37,4 +47,43 @@ export class BusquedaAmigosComponent {
     this.router.navigate(['/perfil/'+ _idUser])
   }
 
+  FriendRequeso(id_amigo:number){
+    this.friendReq = {
+      ID_User1: this.userCookie.ID_User,
+      ID_User2: id_amigo,
+      Fecha: new Date()
+    }
+
+    this.userDB.sendFriendRequest(this.friendReq).subscribe(
+      {
+        next: response=>{
+
+      this.dataSource=response;
+      console.log(this.dataSource)
+    },
+    error: error=>console.log(error)
+  }
+    );
+  }
+
+  AceptarRequeso(id_amigo:number){
+    this.friendReq = {
+      ID_User1: this.userCookie.ID_User,
+      ID_User2: id_amigo,
+      Fecha: new Date()
+    }
+
+    this.userDB.acceptFriend(this.friendReq).subscribe(
+      {
+        next: response=>{
+
+      this.dataSource=response;
+      console.log(this.dataSource)
+    },
+    error: error=>console.log(error)
+  }
+    );
+
+
+  }
 }

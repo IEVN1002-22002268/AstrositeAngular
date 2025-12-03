@@ -6,7 +6,7 @@
                 <div class="card color-card shadow-lg" style="border-radius: 1.2rem; border: none;">
                     <div class="card-body p-5 text-black">
 
-                        <form>
+                        <form [formGroup]="formGroup" (ngSubmit)="OnSubmit()">
                             <div class="text-center mb-3">
                                 <span class="h2 fw-bold title-text">Ingrese el código de verificación</span>
                             </div>
@@ -16,16 +16,16 @@
                             <p class="fw-bold text-center mb-3 subtitle-text">Ingresa el código</p>
 
                             <div class="d-flex justify-content-center mb-4 otp-container">
-                                <input maxlength="1" class="otp-box" type="text" placeholder="-">
-                                <input maxlength="1" class="otp-box" type="text" placeholder="-">
-                                <input maxlength="1" class="otp-box" type="text" placeholder="-">
-                                <input maxlength="1" class="otp-box" type="text" placeholder="-">
-                                <input maxlength="1" class="otp-box" type="text" placeholder="-">
-                                <input maxlength="1" class="otp-box" type="text" placeholder="-">
+                                <input id="_uno" name="_uno" formControlName="_uno" maxlength="1" class="otp-box" type="text" placeholder="-">
+                                <input id="_dos" name="_dos" formControlName="_dos" maxlength="1" class="otp-box" type="text" placeholder="-">
+                                <input id="_tres" name="_tres" formControlName="_tres" maxlength="1" class="otp-box" type="text" placeholder="-">
+                                <input id="_cuatro" name="_cuatro" formControlName="_cuatro" maxlength="1" class="otp-box" type="text" placeholder="-">
+                                <input id="_cinco" name="_cinco" formControlName="_cinco" maxlength="1" class="otp-box" type="text" placeholder="-">
+                                <input id="_seis" name="_seis" formControlName="_seis" maxlength="1" class="otp-box" type="text" placeholder="-">
                             </div>
 
                             <div class="text-center mb-3">
-                                <button class="btn text-white btn-principal w-100 py-2" type="button">Verificar</button>
+                                <button class="btn text-white btn-principal w-100 py-2" type="submit">Verificar</button>
                             </div>
 
                             <p class="fw-normal text-center txt-signup" style="font-size: 14px;">¿No recibiste el código? <a href="#">Reenviar</a></p>

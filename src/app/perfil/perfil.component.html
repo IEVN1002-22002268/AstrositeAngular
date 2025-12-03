@@ -24,7 +24,17 @@
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
                             </svg>
                         </button>
-                        <button class="btn btn-seleccionado px-3">...</button>
+                        <div class="btn-group dropup">
+                          <button type="button" class="btn btn-seleccionado px-3 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                            <ul *ngIf="_isOwner" class="dropdown-menu">
+                              <li><a class="dropdown-item" [routerLink]="['/config-cuenta']" type="button">Configuración</a></li>
+                              <li><a class="dropdown-item" [routerLink]="['/usuarios-bloqueados']" type="button">Usuarios bloqueados</a></li>
+                              <li><a class="dropdown-item" [routerLink]="['/codigoveri']" type="button">Cambiar contraseña</a></li>
+                            </ul>
+                            <ul *ngIf="!_isOwner" class="dropdown-menu">
+                              <li><a class="dropdown-item" [routerLink]="['/config-cuenta']" type="button">Bloquear</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,19 +55,20 @@
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="jugados-pane" role="tabpanel" tabindex="0">
-                <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juegoUser of juegosDelUsuario">
+                <div class="col-6 col-md-4 col-lg-3 col-xxl-2" *ngFor="let juegoUser of juegosLista">
                     <div class="card h-100" style="border-style: none; cursor: pointer;">
                         <img src="td-wall.jpg" class="card-img-top" alt="Project Sunnight">
 
                         <div class="mt-3">
-                            <h5 class="card-title">Project Sunnight</h5>
-                            <p class="card-text mb-2" style="color: #595c5f;">Horror survival zombies sandbox</p>
+                            <h5 class="card-title">{{juegoUser.Nombre}}</h5>
+                            <p class="card-text mb-2" style="color: #595c5f;">{{juegoUser.Descripcion}}</p>
                             <span class="letra-verde">Horas jugadas: 40hrs</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-4 g-3"><!-- col-6 col-md-4 col-lg-3 col-xl-2 -->
+            <!-- col-6 col-md-4 col-lg-3 col-xl-2 -->
+<!--             <div class="row mt-4 g-3">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let juegoUser of juegosDelUsuario">
                     <div class="card h-100" style="border-style: none; cursor: pointer; transition: transform 0.2s;">
                         <img src="td-wall.jpg" class="card-img-top" alt="...">
@@ -69,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- <div class="tab-pane fade" id="estadisticas-pane" role="tabpanel" tabindex="0">
@@ -95,27 +106,21 @@
             </div>
             <div id="visibilidad-usuarios" *ngIf="!mostrarSolicitudes">
                 <div class="mt-4">
-                    <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of amigosDelUsuario">
+                    <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of amigosLista">
                         <div class="card-body d-flex flex-column flex-md-row align-items-md-center p-3">
                             <div class="d-flex align-items-center flex-grow-1">
                                 <img src="wall-nat.jpg" alt="" class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px;">
                                 <div class="flex-grow-1">
                                     <div class="d-flex align-items-center flex-wrap">
-                                        <h6 class="card-title mb-0 me-2">Usuario Ejemplo</h6> <!-- style="font-size: 16px;" -->
-                                            <span class="conectado small">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                                    <circle cx="8" cy="8" r="8"/>
-                                                </svg> Conectado
-                                            </span>
+                                        <h6 class="card-title mb-0 me-2">{{item.Username}}</h6> <!-- style="font-size: 16px;" -->
                                     </div>
                                     <p class="card-text letra-gris mb-0 text-truncate text-md-truncate mt-1" style="max-width: 100%; max-width: 450px;">
-                                        Descripción del usuario, intereses, profesión, etc...
+                                        {{item.Descripcion}}
                                     </p>
                                 </div>
                             </div>
 
                             <div class="d-flex gap-2 flex-sm-row mt-2 mt-md-0 align-self-md-center align-self-start">
-                                <a href="#" class="btn btn-verde-azul px-3">Mensaje</a>
                                 <a href="#" class="btn btn-eliminar px-3">Eliminar</a>
                             </div>
                         </div>
@@ -124,14 +129,14 @@
             </div>
             <div id="visibilidad-solicitudes" *ngIf="mostrarSolicitudes">
                 <div class="mt-4">
-                    <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of solicitudesDelUsuario">
+                    <div class="card pe-1 ps-1 mb-3" style="background-color: #fcfcff; border-color: #efedf4;" *ngFor="let item of solicitudesLista">
 
                         <div class="card-body d-flex flex-column flex-md-row align-items-md-center p-3">
                             <div class="d-flex align-items-center flex-grow-1">
                                 <img src="wall-nat.jpg" alt="" class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px;">
                                 <div class="flex-grow-1">
                                     <div class="d-flex align-items-center flex-wrap">
-                                        <h6 class="card-title mb-0 me-2">Usuario Ejemplo</h6>
+                                        <h6 class="card-title mb-0 me-2">{{item.Username}}</h6>
                                     </div>
                                     <p class="card-text letra-gris mb-0 text-truncate text-md-truncate mt-1" style="max-width: 100%; max-width: 450px;">
                                         Te envió una solicitud de amistad
@@ -141,9 +146,9 @@
                             </div>
 
                             <div class="d-flex gap-2 flex-sm-row mt-2 mt-md-0 align-self-md-center align-self-start">
-                                <a href="#" class="btn btn-ver-perfil text-white px-3">Ver perfil</a>
-                                <a href="#" class="btn btn-verde-azul px-3">Aceptar</a>
-                                <a href="#" class="btn btn-eliminar px-3">Eliminar</a>
+                                <a (click)="Perfil(item.ID_User)" class="btn btn-ver-perfil text-white px-3">Ver perfil</a>
+                                <a *ngIf="item.Status == 3" (click)="AceptarRequeso(item.ID_User)" class="btn btn-verde-azul px-3">Aceptar</a>
+                                <a class="btn btn-eliminar px-3">Eliminar</a>
                             </div>
                         </div>
                     </div>

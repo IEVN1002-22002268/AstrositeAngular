@@ -15,8 +15,8 @@ export interface Users{
   Correo: string,
   Username: string,
   Nombre: string,
-  Contrasena: string,
-  FechaNac: Date,
+  Contrasena?: string,
+  FechaNac?: Date,
   Foto?: string,
   Descripcion?: string,
   Telefono?: number
@@ -31,14 +31,14 @@ export interface Reports{
 
 export interface Auth{
   ID_Auth? : number,
-  ID_User : number,
+  Correo : string,
   Code : number
 }
 
 export interface Friends{
   ID_User1?: number,
   ID_User2?: number,
-  Status : number,
+  Status? : number,
   Fecha : Date
 }
 

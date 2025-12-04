@@ -261,4 +261,17 @@ export class PerfilComponent {
     );
   }
 
+
+  CancelarAmistad(id_bloq:number){
+    this.friendReq.ID_User1 = this.userCookie.ID_User
+    this.friendReq.ID_User2 = id_bloq
+    this.friendReq.Fecha = new Date()
+    this.userDB.cancelRequest(this.friendReq).subscribe({
+        next: response=>{
+        this.dataSource=response;
+
+      },
+        complete:()=>console.info(),
+        error: error=>console.log(error)})
+  }
 }

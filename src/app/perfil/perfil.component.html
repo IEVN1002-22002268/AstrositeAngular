@@ -12,14 +12,10 @@
                     <p class="text-muted mb-0">{{infoUser.Descripcion}}</p>
                 </div>
                 <div class="d-flex flex-column flex-md-row align-items-center gap-3">
-                    <span style="color: #891cff">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-                        </svg> 10 amigos (No BD)
-                    </span>
+
 
                     <div class="d-flex gap-2 acciones-usuario">
-                        <button *ngIf="!_isOwner" class="btn btn-morado">Agregar
+                        <button  (click)="FriendRequeso(id_perfil)" *ngIf="!_isOwner" class="btn btn-morado">Agregar
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
                             </svg>
@@ -89,14 +85,7 @@
 
         <div class="tab-pane fade" id="amigos-pane" role="tabpanel" tabindex="0">
             <div class="row align-items-center">
-                <h6 class="col-lg-2 fw-semibold text-center">
-                    Buscar amigos:
-                </h6>
-                <div class="col-lg-7">
-                    <div class="cont-search">
-                        <input class="form-control buscador-catalogo" type="search" placeholder="¿Qué estás buscando?">
-                    </div>
-                </div>
+
                 <div class="col-lg-3">
                     <div class="d-flex gap-2 ms-3 text-center">
                         <a href="javascript:void(0)" class="btn btn-solicitudes px-3" (click)="mostrarSolicitudes=!mostrarSolicitudes">
@@ -112,7 +101,7 @@
                                 <img src="wall-nat.jpg" alt="" class="rounded-circle flex-shrink-0 me-3" style="width: 60px; height: 60px;">
                                 <div class="flex-grow-1">
                                     <div class="d-flex align-items-center flex-wrap">
-                                        <h6 class="card-title mb-0 me-2">{{item.Username}}</h6> <!-- style="font-size: 16px;" -->
+                                        <h6 class="card-title mb-0 me-2">{{item.Username}} ola</h6> <!-- style="font-size: 16px;" -->
                                     </div>
                                     <p class="card-text letra-gris mb-0 text-truncate text-md-truncate mt-1" style="max-width: 100%; max-width: 450px;">
                                         {{item.Descripcion}}
@@ -121,7 +110,7 @@
                             </div>
 
                             <div class="d-flex gap-2 flex-sm-row mt-2 mt-md-0 align-self-md-center align-self-start">
-                                <a href="#" class="btn btn-eliminar px-3">Eliminar</a>
+                                <a (click)="CancelarAmistad(item.ID_User)" class="btn btn-eliminar px-3">Eliminar</a>
                             </div>
                         </div>
                     </div>
@@ -148,7 +137,7 @@
                             <div class="d-flex gap-2 flex-sm-row mt-2 mt-md-0 align-self-md-center align-self-start">
                                 <a (click)="Perfil(item.ID_User)" class="btn btn-ver-perfil text-white px-3">Ver perfil</a>
                                 <a *ngIf="item.Status == 3" (click)="AceptarRequeso(item.ID_User)" class="btn btn-verde-azul px-3">Aceptar</a>
-                                <a class="btn btn-eliminar px-3">Eliminar</a>
+                                <a (click)="CancelarAmistad(item.ID_User)" class="btn btn-eliminar px-3">Eliminar</a>
                             </div>
                         </div>
                     </div>

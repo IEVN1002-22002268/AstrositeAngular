@@ -47,7 +47,7 @@ export class ApiService {
   }
 
   cambiarContrasena(id:number, datos:Users){
-    return this.http.put('http://127.0.0.1:5000/perfil-contra/' + id, datos)
+    return this.http.put('http://127.0.0.1:5000/contrasena/' + id, datos)
   }
 
   public eliminarUsuario(id:number):Observable<Users>{

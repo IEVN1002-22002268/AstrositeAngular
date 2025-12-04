@@ -13,6 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrl: './busqueda-amigos.component.css'
 })
 export class BusquedaAmigosComponent {
+  listFilter: string = ""
   dataSource:any=[];
   userCookie:any = []
   usersData:any=[];

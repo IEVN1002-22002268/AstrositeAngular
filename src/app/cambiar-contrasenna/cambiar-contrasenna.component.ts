@@ -53,6 +53,8 @@ export class CambiarContrasennaComponent {
 
 
   OnSubmit():void {
+    this.errorContra = false
+    this.contraCambiada = false
     console.log("OnSubmit")
     const {_contrasena, _contrasenaDos}= this.formGroup.value;
     if(_contrasena == _contrasenaDos){

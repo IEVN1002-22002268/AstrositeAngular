@@ -13,6 +13,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class NavbarComponent {
   _isLoggedIn:boolean = false;
+  _isAdmin:boolean = false;
+
 
   constructor(public userDB:ApiService, private router:Router, private cookieService:CookieService) { }
 
@@ -33,10 +35,17 @@ export class NavbarComponent {
     if(this.cookieService.get('user')){ //Si existe la cookie user hay sesion iniciada
       this.infoUser = JSON.parse(this.cookieService.get('user'))
       this._isLoggedIn = true;
+
+      if(this.infoUser.ID_User == 5){
+        this._isAdmin = true
+      }else{
+        this._isAdmin = false
+      }
     }else{  //si no existe cookie no hay sesion iniciada
       this._isLoggedIn = false;
     }
     console.log("OnInit: " + this._isLoggedIn)
+
   }
 
   Perfil(){

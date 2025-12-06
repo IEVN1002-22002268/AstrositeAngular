@@ -26,7 +26,14 @@
                             </thead>
 
                             <tbody>
-
+                               <tr *ngFor="let item of listaPro">
+                                <th scope="row">{{item.ID_Juego}}</th>
+                                <td>{{item.NombreJuego}}</td>
+                                <td>{{item.ID_User}}</td>
+                                <td>{{item.PrecioTotal}}</td>
+                                <td>{{item.Descuento}}</td>
+                                <td>{{item.Fecha}}</td>
+                              </tr>
                             </tbody>
                         </table>
                     </div>

@@ -27,7 +27,7 @@ export class CatalogoComponent {
   terminoBusqueda: string = '';
 
   ngOnInit(): void {
-     this.gamesDB.getGames().subscribe(
+    this.gamesDB.getGames().subscribe(
       {
         next: response=>{
 

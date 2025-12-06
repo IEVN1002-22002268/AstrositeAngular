@@ -10,15 +10,11 @@
                 </div>
 
                 <div class="mb-4 text-start">
-                    <select class="form-control input-rounded select-reportes">
-                        <option value="">Opciones</option>
-                        <option value="">Bugs de juegos</option>
-                        <option value="">Fallo en la página</option>
-                        <option value="">Problemas con mi perfil</option>
-                        <option value="">Problemas con un usuario</option>
-                        <option value="">Error al comprar</option>
-                        <option value="">Otros</option>
+                  <form [formGroup]="formGroup" (ngSubmit)="OnSubmit()">
+                    <select (change)="OnSubmit()" name="_tema" id="_tema" formControlName="_tema" class="form-control input-rounded select-reportes">
+                        <option *ngFor="let item of selectReporte" value="{{item}}">{{item}}</option>
                     </select>
+                  </form>
                 </div>
 
                 <div class="table-wrapper">
@@ -33,7 +29,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                              <tr *ngFor="let item of listaReportes">
+                                <th scope="row">{{item.ID_Ticket}}</th>
+                                <td>{{item.Correo}}</td>
+                                <td>{{item.Tema}}</td>
+                                <td>{{item.Descripcion}}</td>
+                              </tr>
                             </tbody>
                         </table>
                     </div>

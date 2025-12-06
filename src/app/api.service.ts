@@ -118,6 +118,15 @@ export class ApiService {
     return this.http.get<Sales>('http://127.0.0.1:5000/historial/' + id)
   }
 
+  //--------------Admin----------------------
+  public getSales():Observable<Sales>{
+    return this.http.get<Sales>('http://127.0.0.1:5000/admin/ventas')
+  }
+
+  getReports(tema : Reports){
+    return this.http.post('http://127.0.0.1:5000/admin/reportes', tema)
+  }
+
 }
 
 

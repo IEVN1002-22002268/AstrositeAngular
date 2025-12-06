@@ -9,16 +9,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
-        <li class="nav-item">
+        <li *ngIf="!_isAdmin" class="nav-item">
           <a class="nav-link" [routerLink]="['/catalogo']" href="#">Catálogo</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!_isAdmin" class="nav-item">
           <a class="nav-link" [routerLink]="['/busqueda-de-amigos']" href="#">Búsqueda</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!_isAdmin" class="nav-item">
           <a class="nav-link" [routerLink]="['/reporte']"  href="#">Soporte</a>
         </li>
-        <li class="nav-item me-2">
+        <li *ngIf="_isAdmin" class="nav-item">
+          <a class="nav-link" [routerLink]="['/admin-reportes']"  href="#">Soporte-Admin</a>
+        </li>
+        <li *ngIf="_isAdmin" class="nav-item">
+          <a class="nav-link" [routerLink]="['/admin-ventas']"  href="#">Ventas-Admin</a>
+        </li>
+        <li *ngIf="!_isAdmin" class="nav-item me-2">
           <a class="nav-link" [routerLink]="['/carrito']"  href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
               <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
@@ -29,8 +35,8 @@
           <button class="btn text-white btn-principal px-4 me-2 dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" type="submit">Perfil</button>
           <ul *ngIf="_isLoggedIn" class="dropdown-menu dropdown-menu-lg-end">
             <li><p class="dropdown-header fw-bold text-white" href="#">{{infoUser.Username}}</p></li>
-            <li><a class="dropdown-item" (click)="Perfil()" type="button">Perfil</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/historial']" href="#">Historial de compras</a></li>
+            <li *ngIf="!_isAdmin"><a class="dropdown-item" (click)="Perfil()" type="button">Perfil</a></li>
+            <li *ngIf="!_isAdmin"><a class="dropdown-item" [routerLink]="['/historial']" href="#">Historial de compras</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="CerrarSesion()" type="button">Cerrar sesion</a></li>
           </ul>

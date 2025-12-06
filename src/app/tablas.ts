@@ -23,10 +23,10 @@ export interface Users{
 }
 
 export interface Reports{
-  Correo: string,
+  Correo?: string,
   Tema: string,
-  Descripcion: string,
-  Imagen: string
+  Descripcion?: string,
+  Imagen?: string
 }
 
 export interface Auth{

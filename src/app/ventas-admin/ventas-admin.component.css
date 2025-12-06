@@ -1,0 +1,47 @@
+section {
+    background-color: #212126;
+}
+
+.title-text {
+    color: #1c1b1f;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.subtitle-text {
+    color: #1c1b1f;
+    font-size: 16px;
+}
+
+.txt-signup {
+    font-size: 15px;
+    color: #6d6d6d;
+}
+
+.color-card {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.table-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.table thead th {
+    font-weight: 700;
+    color: #1c1b1f;
+}
+
+.table tbody td {
+    color: #322d3a;
+}
+
+.input-rounded {
+    border-radius: 10px;
+}
+
+.select-ventas {
+    max-width: 250px;
+    display: inline-block;
+}

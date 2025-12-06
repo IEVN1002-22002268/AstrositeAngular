@@ -14,6 +14,8 @@ import { UsuariosBloqueadosComponent } from './usuarios-bloqueados/usuarios-bloq
 import { CarritoComponent } from './carrito/carrito.component';
 import { HistorialComprasComponent } from './historial-compras/historial-compras.component';
 import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
+import { VentasAdminComponent } from './ventas-admin/ventas-admin.component';
+import { ReportesAdminComponent } from './reportes-admin/reportes-admin.component';
 
 
 export const routes: Routes = [
@@ -76,6 +78,14 @@ export const routes: Routes = [
   {
     path: 'perfil/:id',
     component: PerfilComponent
+  },
+  {
+    path: 'admin-reportes',
+    component: ReportesAdminComponent
+  },
+  {
+    path: 'admin-ventas',
+    component: VentasAdminComponent
   },
   // (Opcional) Si entran a la raíz, redirigir al catálogo o a donde quieras
   { path: '', redirectTo: 'catalogo', pathMatch: 'full' }
